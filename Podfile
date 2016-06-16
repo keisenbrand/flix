@@ -6,5 +6,6 @@ target 'Flix' do
   use_frameworks!
 
   # Pods for Flix
-    pod 'AFNetworking'
+  pod 'AFNetworking'
+  pod 'MBProgressHUD'
 end
