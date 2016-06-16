@@ -19,11 +19,12 @@ The following **optional** features are implemented:
 - [ ] Movies are displayed using a CollectionView instead of a TableView.
 - [ ] User can search for a movie.
 - [ ] All images fade in as they are loading.
-- [ ] Customize the UI.
+- [x] Customize the UI.
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality!
+- [x] Details view
+- [x] Scroll to view in details view
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
@@ -47,7 +48,9 @@ Describe any challenges encountered while building the app.
 List an 3rd party libraries, icons, graphics, or other assets you used in your app.
 
 - [AFNetworking](https://github.com/AFNetworking/AFNetworking) - networking task library
+- [MBProgressHUD](https://cocoapods.org/?q=progress) - class that displays HUD when work is being done in a background thread
 
+Clapperboard by Björn Andersson from the Noun Project
 ## License
 
     Copyright [yyyy] [name of copyright owner]

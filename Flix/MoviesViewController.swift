@@ -15,10 +15,16 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet var tableView: UITableView!
     
     var movies: [NSDictionary]?
+    var endpoint: String!
     
+    /* 
+     * Called when user refreshes the page or when there is a new network request
+     * Loads request and updates data displayed in the table view
+     */
     func refreshControlAction(refreshControl: UIRefreshControl) {
         let apiKey = "3c7d86dab78b281e7c5e90762dda6305"
-        let url = NSURL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=\(apiKey)")
+        let url = NSURL(string: "https://api.themoviedb.org/3/movie/\(endpoint)?api_key=\(apiKey)")
+        
         let request = NSURLRequest(
             URL: url!,
             cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData,
@@ -32,7 +38,8 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
         refreshControl.addTarget(self, action: #selector(refreshControlAction), forControlEvents: UIControlEvents.ValueChanged)
         tableView.insertSubview(refreshControl, atIndex: 0)
-
+        
+        // Shows progress HUD
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
 
         
@@ -59,6 +66,9 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
 
     }
     
+    /*
+     * Initializations after the view is loaded
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
         let refreshControl = UIRefreshControl()
@@ -66,7 +76,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
         tableView.dataSource = self
         tableView.delegate = self
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -89,17 +98,18 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         let movie = movies![indexPath.row]
         let title = movie["title"] as! String
         let overview = movie["overview"] as! String
-        let posterPath = movie["poster_path"] as! String
-        
-        let baseUrl = "http://image.tmdb.org/t/p/w500"
-        
-        let imageUrl = NSURL(string: baseUrl + posterPath)
         
         cell.titleLabel.text = title
         cell.overviewLabel.text = overview
-        cell.posterView.setImageWithURL(imageUrl!)
         
-        print("row \(indexPath.row)")
+        let baseUrl = "http://image.tmdb.org/t/p/w500"
+        
+        if let posterPath = movie["poster_path"] as? String {
+            let imageUrl = NSURL(string: baseUrl + posterPath)
+            cell.posterView.setImageWithURL(imageUrl!)
+
+        }
+        
         return cell
     }
     
@@ -115,9 +125,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
         let detailsViewController = segue.destinationViewController as! DetailsViewController
         detailsViewController.movie = movie
-        
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
     
 
