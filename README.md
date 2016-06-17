@@ -50,7 +50,6 @@ List an 3rd party libraries, icons, graphics, or other assets you used in your a
 - [AFNetworking](https://github.com/AFNetworking/AFNetworking) - networking task library
 - [MBProgressHUD](https://cocoapods.org/?q=progress) - class that displays HUD when work is being done in a background thread
 
-Clapperboard by Björn Andersson from the Noun Project
 ## License
 
     Copyright [yyyy] [name of copyright owner]

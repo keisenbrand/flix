@@ -43,6 +43,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
 
         
+        // Request completes
         let task: NSURLSessionDataTask = session.dataTaskWithRequest(request,
           completionHandler: { (dataOrNil, response, error) in
             MBProgressHUD.hideHUDForView(self.view, animated: true)
