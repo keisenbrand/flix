@@ -35,7 +35,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/HwslzGY.mp4' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='<iframe src="//giphy.com/embed/xT0Gqhs39MCOEFFfNu" width="480" height="857" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="http://giphy.com/gifs/xT0Gqhs39MCOEFFfNu">via GIPHY</a></p>' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
